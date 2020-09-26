@@ -10,8 +10,8 @@ public class Rectangles {
      */
     private final static char topLeft = '┌';
     private final static char topRight = '┐';
-    private final static char verticalEdge = '─';
-    private final static char horizontalEdge = '│';
+    private final static char horizontalEdge = '─';
+    private final static char verticalEdge = '│';
     private final static char bottomLeft = '└';
     private final static char bottomRight = '┘';
 
@@ -74,17 +74,19 @@ public class Rectangles {
         whereas String.repeat() only on Java 11+.
         */
 
-        //Top and bottom horizontal rows
+        //Top and bottom horizontal rows without corners
         StringBuilder topAndBottom = new StringBuilder();
         for (int i = 0; i < width - 2; i++) {       //i < width - 2 because of the 2 corner chars
-            topAndBottom.append(verticalEdge);
+            topAndBottom.append(horizontalEdge);
         }
 
-        //The spaces in the middle rows
-        StringBuilder whitespace = new StringBuilder();
+        //The middle rows
+        StringBuilder middleRow = new StringBuilder();
+        middleRow.append(verticalEdge);
         for (int i = 0; i < width - 2; i++) {       //i < width - 2 because of the 2 wall chars
-            whitespace.append(' ');
+            middleRow.append(' ');
         }
+        middleRow.append(verticalEdge);
 
         //Painting the top row
         rectangle.append(topLeft)
@@ -94,9 +96,7 @@ public class Rectangles {
 
         //Painting the middle rows
         for (int i = 0; i < height - 2; i++) {
-            rectangle.append(horizontalEdge)
-                    .append(whitespace)
-                    .append(horizontalEdge)
+            rectangle.append(middleRow)
                     .append('\n');      //The newline character
         }
 
