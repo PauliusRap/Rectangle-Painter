@@ -16,9 +16,35 @@ public class Rectangles {
     private final static char bottomRight = '┘';
 
     public static void main(String[] args) {
+        //Code used for testing the method
+        /*
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please put in width and height:");
         System.out.println(draw(scanner.nextInt(), scanner.nextInt()));
+        */
+
+        //Tests to compare the rectangles to the ones given in the task
+
+        //Rectangles given as an examples in  the task file
+        String rectangle1 = "┌┐\n" +
+                            "└┘";
+        String rectangle2 = "┌─┐\n" +
+                            "│ │\n" +
+                            "└─┘";
+        String rectangle3 = "┌──────┐\n" +
+                            "│      │\n" +
+                            "└──────┘";
+        //Test 1
+        String test1Result = rectangle1.equals(draw(2,2)) ? "passed" : "failed";
+        System.out.println("Test 1 " + test1Result);
+
+        //Test 2
+        String test2Result = rectangle2.equals(draw(3,3)) ? "passed" : "failed";
+        System.out.println("Test 2 " + test2Result);
+
+        //Test 3
+        String test3Result = rectangle3.equals(draw(8,3)) ? "passed" : "failed";
+        System.out.println("Test 3 " + test3Result);
     }
 
     public static String draw(int width, int height) {
